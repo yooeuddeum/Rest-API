@@ -29,3 +29,15 @@ req.responseType = "json";
 // javascript 객체로써 변환될꺼라는걸 알기 위해서
 req.send();
 // send 메서드로 요청처리
+
+// load 이벤트가 request 객체가 발생할때 실행할 이벤트 핸들러 코드 구성
+req.addEventListener("load", () => {
+  const superHeroes = req.response;
+  MainHeader(superHeroes);
+  Heroes(superHeroes);
+});
+
+// 요청의 대한 응답을 superHeroes 변수에 대입한다
+// superHeroes은 이제 JSON 데이터 기반 javascript 객체를 포함함
+// MainHeader 함수에 header 부분에 데이터를 넣음
+// Heroes 함수에 section 부분에 데이터를 넣음
