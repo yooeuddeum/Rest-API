@@ -14,7 +14,7 @@ root.appendChild(section);
 root.appendChild(btn);
 
 const reqURL =
-  "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
 
 const req = new XMLHttpRequest();
 // XMLHttpRequest 생성자로 부터 새로운 request 인스턴스 생성
@@ -49,11 +49,11 @@ req.addEventListener("load", () => {
 function MainHeader(object) {
   const h1 = document.createElement("h1");
   h1.textContent = object["squadName"];
-
+  
   const p = document.createElement("p");
   p.textContent =
-    "Hometown: " + object["homeTown"] + " // Formed: " + object["formed"];
-
+  "Hometown: " + object["homeTown"] + " // Formed: " + object["formed"];
+  
   header.appendChild(h1);
   header.appendChild(p);
 }
@@ -72,7 +72,7 @@ function MainHeader(object) {
 // 마지막으로 section 태그에 자식요소로 article을 넣어줌
 function Heroes(object) {
   const heroes = object["members"];
-
+  
   for (let i = 0; i < heroes.length; i++) {
     const article = document.createElement("article");
     const h2 = document.createElement("h2");
@@ -80,19 +80,19 @@ function Heroes(object) {
     const pre = document.createElement("pre");
     const p = document.createElement("p");
     const List = document.createElement("ul");
-
+    
     h2.textContent = heroes[i].name;
     span.textContent = "Secret identity:" + heroes[i].secretIdentity;
     pre.textContent = "Age: " + heroes[i].age;
     p.textContent = "Superpowers:";
-
+    
     const superPowers = heroes[i].powers;
     for (let j = 0; j < superPowers.length; j++) {
       const listItem = document.createElement("li");
       listItem.textContent = superPowers[j];
       List.appendChild(listItem);
     }
-
+    
     article.appendChild(h2);
     article.appendChild(span);
     article.appendChild(pre);
@@ -101,9 +101,9 @@ function Heroes(object) {
     section.appendChild(article);
   }
 }
+
 header.style.display = "none";
 section.style.display = "none";
-
 btn.addEventListener("click", () => {
   if (MainHeader) {
     header.style.display = "none";
